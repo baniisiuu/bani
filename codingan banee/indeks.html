@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daffa Muhammad Albani</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #121212;
+      color: #ddd;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    header.navbar {
+      background: #1f1f1f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #eee;
+      letter-spacing: 1.1px;
+      user-select: none;
+    }
+    nav ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul.nav-links li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #bbb;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    nav ul.nav-links li a:hover {
+      background-color: #444;
+      color: #eee;
+    }
+
+    section#hero {
+      text-align: center;
+      padding: 5rem 1.5rem 7rem;
+      background: linear-gradient(135deg, #222, #121212);
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+      box-shadow: inset 0 -40px 80px -40px rgba(0,0,0,0.7);
+      color: #eee;
+      position: relative;
+    }
+    .hero-photo img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 5px solid #444;
+      box-shadow: 0 6px 16px rgba(255 255 255 / 0.15);
+      cursor: pointer;
+      animation: pulseGlow 3s ease-in-out infinite;
+      transition: transform 0.35s ease;
+    }
+    .hero-photo img:hover {
+      transform: scale(1.12) rotate(6deg);
+      box-shadow: 0 12px 26px rgba(255 255 255 / 0.35);
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 14px 2px rgba(255 255 255 / 0.15);
+      }
+      50% {
+        box-shadow: 0 0 28px 6px rgba(255 255 255 / 0.3);
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 2rem 0 0.5rem;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+    }
+    p.hero-desc {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #bbb;
+      letter-spacing: 1px;
+    }
+
+    section#about, section#dokumentasi, section#socials {
+      padding: 3rem 1.5rem;
+    }
+    #about, #dokumentasi {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #about h2, #dokumentasi h2, #socials h2 {
+      font-size: 2.4rem;
+      color: #eee;
+      margin-bottom: 1.5rem;
+    }
+    #about p, #dokumentasi p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.7);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255 255 255 / 0.3);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .social-icons a {
+      width: 80px;
+      height: 80px;
+      background: #2a2a2a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
+      filter: grayscale(40%);
+    }
+    .social-icons a:hover {
+      transform: scale(1.4) rotate(15deg);
+      box-shadow: 0 14px 40px rgba(255 255 255 / 0.4);
+      filter: grayscale(0%);
+    }
+    .social-icons a img {
+      width: 40px;
+      filter: invert(1);
+    }
+
+    footer {
+      background: #1f1f1f;
+      color: #bbb;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      font-weight: 600;
+      box-shadow: inset 0 10px 18px rgba(255 255 255 / 0.05);
+    }
+
+    @media (max-width: 600px) {
+      nav ul.nav-links {
+        gap: 1.2rem;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .social-icons {
+        gap: 1.6rem;
+      }
+    }
+
+    canvas#cursorCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Welcome</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#dokumentasi">My fragments of memories</a></li>
+        <li><a href="#socials">Socials</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-photo">
+      <img src="logo.jpg" alt="Foto Daffa Muhammad Albani" />
+    </div>
+    <h1>Daffa Muhammad Albani</h1>
+    <p class="hero-desc">I was born to rise</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Heyyoo! Saya Bani, seorang konten kreator dan design grapic yang menyukai tantangan baru dan selalu berusaha membuat karya yang tidak hanya fungsional tapi juga estetis.
+    </p>
+  </section>
+
+  <section id="dokumentasi">
+    <h2>fragments of memories</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="gambar1.jpg" alt="Dokumentasi 1" /></div>
+      <div class="gallery-item"><img src="gambar2.jpg" alt="Dokumentasi 2" /></div>
+      <div class="gallery-item"><img src="gambar3.jpg" alt="Dokumentasi 3" /></div>
+      <div class="gallery-item"><img src="gambar4.jpg" alt="Dokumentasi 4" /></div>
+    </div>
+  </section>
+
+  <section id="socials">
+    <h2>Find Me On</h2>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/baniiiiaja?igsh=dGd3MGk2Zmx0b3p2" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
+      </a>
+      <a href="https://www.tiktok.com/@baniiisiqqq?_t=ZS-8wdB2m8cZbl&_r=1" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png" alt="TikTok" />
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Daffa Muhammad Albani. All rights reserved.
+  </footer>
+
+  <canvas id="cursorCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('cursorCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    document.addEventListener('mousemove', (e) => {
+      for (let i = 0; i < 3; i++) {
+        particles.push({
+          x: e.clientX,
+          y: e.clientY,
+          alpha: 1,
+          size: Math.random() * 8 + 4,
+          dx: (Math.random() - 0.5) * 2,
+          dy: (Math.random() - 0.5) * 2
+        });
+      }
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        p.x += p.dx;
+        p.y += p.dy;
+        p.alpha -= 0.02;
+
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+        gradient.addColorStop(0, `rgba(255, 200, 150, ${p.alpha})`);    // oranye muda
+        gradient.addColorStop(0.5, `rgba(255, 255, 150, ${p.alpha})`);  // kuning muda
+        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);             // putih transparan
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.shadowColor = `rgba(255, 150, 0, ${p.alpha * 0.3})`;
+        ctx.shadowBlur = 10;
+        ctx.fill();
+
+        if (p.alpha <= 0) particles.splice(i, 1);
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
